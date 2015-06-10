@@ -19,7 +19,7 @@ public class Grenade : EquipmentStats
 
 
        // gameObject.transform.parent = inventory.transform;
-        //gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
         gameObject.SetActive(false);
         //inventory.grenades_reg++;
     }
@@ -49,6 +49,7 @@ public class Grenade : EquipmentStats
     void Throw()
     {
         rb.isKinematic = false;
+        rb.useGravity = true;
 
         rb.AddForce(Camera.main.transform.up * 450);
         rb.AddForce(Camera.main.transform.forward * 450);

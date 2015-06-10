@@ -35,6 +35,7 @@ public class InputHandler : MonoBehaviour
     public KeyCode slap = KeyCode.F;
     public KeyCode shoot = KeyCode.V;
     public KeyCode jump = KeyCode.Space;
+    public KeyCode grenade = KeyCode.T;
 
     //player state change controls
     public KeyCode init = KeyCode.I;
@@ -172,6 +173,10 @@ public class InputHandler : MonoBehaviour
             player.GetComponent<PlayerActions>().Jump();
         }
 
+        if(Input.GetKeyDown(grenade))
+        {
+            player.GetComponent<PlayerActions>().Grenades();
+        }
 
         /////Dev Controls
         if (Input.GetKeyDown(killTurret))

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class PlayerFSM
 {
-    bool canSlap, canJump, canShoot, placeTurret;
+    bool canSlap, canJump, canShoot, placeTurret, throwGrenade;
     public Dictionary<string, bool> ActionDict;
     /// <summary>
     /// on construction we will initialize our action list
@@ -24,6 +24,7 @@ public class PlayerFSM
         ActionDict.Add("jump", canJump);
         ActionDict.Add("shoot", canShoot);
         ActionDict.Add("placeTurret", placeTurret);
+        ActionDict.Add("grenade", throwGrenade);
     }
 
     /// <summary>

@@ -12,9 +12,7 @@ public class BulletMove : MonoBehaviour
     private float maxDistance = 4f;
 
     private float myDist;
-
     private float spreadRate = 4;
-
     public int bDamage = 10;
 
     int numOfShots = 1;
@@ -60,13 +58,28 @@ public class BulletMove : MonoBehaviour
             }
         }
 
-        if(gameObject.tag=="Grenade" && isFired==true)
+        if(gameObject.tag=="Bullet" && isFired==true)
         {
-            Vector3 forward = transform.TransformDirection(Vector3.forward*throwPower);
+            Vector3 forward = transform.TransformDirection(Vector3.forward * throwPower);
+
             transform.Translate(forward * Time.deltaTime * mySpeed);
                         myDist += Time.deltaTime * mySpeed;
 
-            //moves the bullet across the screen when the turret fire
+            if(myDist>maxDistance)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        if(gameObject.tag=="Grenade" && isFired==true)
+        {
+            Vector3 up = transform.TransformDirection(Vector3.up * throwPower);
+            Vector3 forward = transform.TransformDirection(Vector3.forward*throwPower);
+            Vector3 down = transform.TransformDirection(Vector3.down * throwPower);
+
+            transform.Translate(forward * Time.deltaTime * mySpeed);
+            transform.Translate(up * Time.deltaTime * mySpeed);
+                        myDist += Time.deltaTime * mySpeed;
 
             if (myDist > maxDistance)
             {

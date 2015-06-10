@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689c67a9205690a43ab13937ae5439c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 0}
   halfPause: 99
   pause: 120
   unpause: 122
@@ -275,6 +276,7 @@ MonoBehaviour:
   slap: 102
   shoot: 118
   jump: 32
+  grenade: 116
   init: 105
   idle: 111
   killTurret: 98
@@ -353,6 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grenade: {fileID: 181162, guid: ef78795dde7ecbf40b0c7e2a838a4fc5, type: 2}
+  Bullet: {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
 --- !u!1001 &1530190726
 Prefab:
   m_ObjectHideFlags: 0
