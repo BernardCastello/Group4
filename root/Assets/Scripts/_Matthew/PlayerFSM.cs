@@ -22,7 +22,8 @@ public class PlayerFSM
         ActionDict = new Dictionary<string, bool>();
         ActionDict.Add("slap", canSlap);
         ActionDict.Add("jump", canJump);
-        ActionDict.Add("shoot", canShoot);
+        ActionDict.Add("TurretShoot", canShoot);
+        ActionDict.Add("PlayerShoot", canShoot);
         ActionDict.Add("placeTurret", placeTurret);
         ActionDict.Add("grenade", throwGrenade);
     }

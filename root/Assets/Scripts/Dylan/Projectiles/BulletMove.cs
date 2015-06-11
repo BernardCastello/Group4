@@ -5,8 +5,10 @@ public class BulletMove : MonoBehaviour
 {
     GameObject[] BB; // shots inside of a shot
     public GameObject enemy;
+   
 
-    public float throwPower = 25f;
+    public float bulletSpeed = 25;
+    public float throwPower = 5f;
     
     private float mySpeed = 1f;
     private float maxDistance = 4f;
@@ -39,11 +41,11 @@ public class BulletMove : MonoBehaviour
 	void Start () {}
 	
 	// Update is called once per frame
-	void Update ()
+    void Update()
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy");
 
-        if(isFired == true)
+        if (isFired == true)
         {
             transform.Translate(Vector3.up * Time.deltaTime * mySpeed);
             myDist += Time.deltaTime * mySpeed;
@@ -53,42 +55,58 @@ public class BulletMove : MonoBehaviour
             if (myDist > maxDistance)
             {
                 Destroy(gameObject);
-                    //checks to see if the bullet has passed the maximum distance it can travel
-                    //and if it dis destroy the object
+                //checks to see if the bullet has passed the maximum distance it can travel
+                //and if it dis destroy the object
             }
         }
 
-        if(gameObject.tag=="Bullet" && isFired==true)
+
+        if (gameObject.tag == "PlayerBullet" && isFired == true)
         {
-            Vector3 forward = transform.TransformDirection(Vector3.forward * throwPower);
+            Vector3 forward = transform.TransformDirection(Vector3.forward * bulletSpeed);
 
             transform.Translate(forward * Time.deltaTime * mySpeed);
-                        myDist += Time.deltaTime * mySpeed;
 
+            myDist += Time.deltaTime * mySpeed;
+            if (myDist > maxDistance)
+            {
+                Destroy(gameObject);
+            }
+         
+        }
+
+        if (gameObject.tag == "Grenade" && isFired == true)
+        {
+            //Vector3 up = transform.TransformDirection(Vector3.up * throwPower);
+            Vector3 forward = transform.TransformDirection(Vector3.forward * throwPower);
+
+
+            //transform.Translate(up * Time.deltaTime * mySpeed);
+            transform.Translate(forward * Time.deltaTime * mySpeed);
+            
+            myDist += Time.deltaTime * mySpeed;
+
+            if (myDist > maxDistance)
+            {
+                Destroy(gameObject);
+                //checks to see if the bullet has passed the maximum distance it can travel
+                //and if it dis destroy the object
+            }
+        }
+
+        if(gameObject.tag == "Bullet" && isFired==true)
+        {
+            Vector3 forward = transform.TransformDirection(Vector3.forward);
+            Instantiate(BB[numOfShots], transform.position, transform.rotation);
+
+            transform.Translate(Vector3.up * Time.deltaTime * mySpeed);
+
+            myDist += Time.deltaTime * mySpeed;
             if(myDist>maxDistance)
             {
                 Destroy(gameObject);
             }
         }
-
-        if(gameObject.tag=="Grenade" && isFired==true)
-        {
-            Vector3 up = transform.TransformDirection(Vector3.up * throwPower);
-            Vector3 forward = transform.TransformDirection(Vector3.forward*throwPower);
-            Vector3 down = transform.TransformDirection(Vector3.down * throwPower);
-
-            transform.Translate(forward * Time.deltaTime * mySpeed);
-            transform.Translate(up * Time.deltaTime * mySpeed);
-                        myDist += Time.deltaTime * mySpeed;
-
-            if (myDist > maxDistance)
-            {
-                Destroy(gameObject);
-                    //checks to see if the bullet has passed the maximum distance it can travel
-                    //and if it dis destroy the object
-            } 
-        }
-
 
         if (gameObject.tag == "ShotGunShell" && isFired == true)
         {
@@ -112,5 +130,5 @@ public class BulletMove : MonoBehaviour
                 //and if it dis destroy the object
             }
         }
-	}
+    }
 }

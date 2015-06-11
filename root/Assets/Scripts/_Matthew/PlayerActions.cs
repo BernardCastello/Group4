@@ -6,7 +6,7 @@ public class PlayerActions : MonoBehaviour, IActions
 {
     [SerializeField]
     public GameObject Grenade;
-    public GameObject Bullet;
+    public GameObject PlayerBullet;
     string action;
     private Vector3 lastFramePosition;
 
@@ -30,11 +30,11 @@ public class PlayerActions : MonoBehaviour, IActions
 
     public void Shoot()
     {
-        if (fsm.ActionDict["shoot"] == true)
-            action = "shoot";
-
-        Bullet.GetComponent<BulletMove>().isFired = true;
-        Instantiate(Bullet, transform.position, transform.rotation);
+        if (fsm.ActionDict["PlayerShoot"] == true)
+            action = "PlayerShoot";
+        
+        PlayerBullet.GetComponent<BulletMove>().isFired = true;
+        Instantiate(PlayerBullet, transform.position, transform.rotation);
     }
 
     public void Grenades()
