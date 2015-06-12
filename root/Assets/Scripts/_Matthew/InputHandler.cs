@@ -163,10 +163,10 @@ public class InputHandler : MonoBehaviour
             player.GetComponent<PlayerActions>().Slap();
         }
 
-        if (Input.GetKeyDown(shoot))
-        {
-            player.GetComponent<PlayerActions>().Shoot();
-        }
+        //if (Input.GetKeyDown(shoot))
+        //{
+        //    player.GetComponent<PlayerActions>().Shoot();
+        //}
 
         if (Input.GetKeyDown(jump))
         {
@@ -191,7 +191,7 @@ public class InputHandler : MonoBehaviour
             }
             catch
             {
-                Debug.LogWarning("ther is no enemies :( ");
+                Debug.LogWarning("there is no enemies :( ");
             }
         }
         if (Input.GetKeyDown(endGame))

@@ -10,6 +10,8 @@ public class PlayerActions : MonoBehaviour, IActions
     string action;
     private Vector3 lastFramePosition;
 
+  
+
     void Awake()
     {
         fsm = new PlayerFSM();
@@ -32,7 +34,7 @@ public class PlayerActions : MonoBehaviour, IActions
     {
         if (fsm.ActionDict["PlayerShoot"] == true)
             action = "PlayerShoot";
-        
+
         PlayerBullet.GetComponent<BulletMove>().isFired = true;
         Instantiate(PlayerBullet, transform.position, transform.rotation);
     }
@@ -43,7 +45,7 @@ public class PlayerActions : MonoBehaviour, IActions
             action = "grenade";
 
         Grenade.GetComponent<BulletMove>().isFired = true;
-        Instantiate(Grenade, transform.position, transform.rotation);
+        Instantiate(Grenade, transform.position, Camera.main.transform.rotation);
     }
 
     public void PlaceTurret()

@@ -5,7 +5,9 @@ public class BulletMove : MonoBehaviour
 {
     GameObject[] BB; // shots inside of a shot
     public GameObject enemy;
-   
+
+    float camRayLenght = 100f;
+    float cameraSpeed = 100f;
 
     public float bulletSpeed = 25;
     public float throwPower = 5f;
@@ -61,27 +63,24 @@ public class BulletMove : MonoBehaviour
         }
 
 
-        if (gameObject.tag == "PlayerBullet" && isFired == true)
-        {
-            Vector3 forward = transform.TransformDirection(Vector3.forward * bulletSpeed);
+        //if (gameObject.tag == "PlayerBullet" && isFired == true)
+        //{
+        //    Vector3 forward = transform.TransformDirection(Vector3.forward * bulletSpeed);
 
-            transform.Translate(forward * Time.deltaTime * mySpeed);
+        //    transform.Translate(forward * Time.deltaTime * mySpeed);
 
-            myDist += Time.deltaTime * mySpeed;
-            if (myDist > maxDistance)
-            {
-                Destroy(gameObject);
-            }
+        //    myDist += Time.deltaTime * mySpeed;
+        //    if (myDist > maxDistance)
+        //    {
+        //        Destroy(gameObject);
+        //    }
          
-        }
+        //}
 
         if (gameObject.tag == "Grenade" && isFired == true)
         {
-            //Vector3 up = transform.TransformDirection(Vector3.up * throwPower);
             Vector3 forward = transform.TransformDirection(Vector3.forward * throwPower);
 
-
-            //transform.Translate(up * Time.deltaTime * mySpeed);
             transform.Translate(forward * Time.deltaTime * mySpeed);
             
             myDist += Time.deltaTime * mySpeed;
