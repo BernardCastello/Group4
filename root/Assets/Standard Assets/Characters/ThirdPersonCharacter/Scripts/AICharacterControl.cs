@@ -30,9 +30,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 agent.SetDestination(target.position);
 
-				
-				
-                // use the values to move the character
+				// use the values to move the character
                 character.Move(agent.desiredVelocity, false, false);
             }
             else

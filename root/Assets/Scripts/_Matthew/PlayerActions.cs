@@ -54,8 +54,6 @@ public class PlayerActions : MonoBehaviour, IActions
         print("turret placed");
     }
 
-
-
     public void State(PlayerState state)
     {        
         fsm.ChangeState(state);
@@ -103,6 +101,11 @@ public class PlayerActions : MonoBehaviour, IActions
         if(running)
         {
             State(PlayerState.run);
+        }
+
+        if(gameObject.GetComponent<PlayerStats>().m_Health <= 0)
+        {
+            State(PlayerState.dead);
         }
     }
 }

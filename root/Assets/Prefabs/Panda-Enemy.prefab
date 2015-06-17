@@ -316,6 +316,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &125932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 429450}
+  - 114: {fileID: 11434810}
+  - 135: {fileID: 13517724}
+  m_Layer: 0
+  m_Name: Attacking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &126486
 GameObject:
   m_ObjectHideFlags: 1
@@ -646,8 +663,8 @@ GameObject:
   - 195: {fileID: 19537968}
   - 114: {fileID: 11480212}
   - 114: {fileID: 11429296}
-  - 114: {fileID: 11476708}
-  - 136: {fileID: 13635110}
+  - 135: {fileID: 13590930}
+  - 114: {fileID: 11497768}
   m_Layer: 0
   m_Name: Panda-Enemy
   m_TagString: Enemy
@@ -1076,6 +1093,18 @@ Transform:
   - {fileID: 414668}
   m_Father: {fileID: 452520}
   m_RootOrder: 0
+--- !u!4 &429450
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 483112}
+  m_RootOrder: 2
 --- !u!4 &432082
 Transform:
   m_ObjectHideFlags: 1
@@ -1474,12 +1503,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169020}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 14.1800003}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: 0, y: 0, z: 9}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 457212}
   - {fileID: 493294}
+  - {fileID: 429450}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &486356
@@ -1734,14 +1764,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e86e39ccd1c1745af83bb805557455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 0
+  m_MaxHealth: 100
   m_Health: 0
   m_HealthRegen: 0
+  m_maxAmmo: 0
+  m_Ammo: 0
+  isPlayer: 0
+  isEnemy: 0
+  isTurret: 0
+  isGoal: 0
+  isShootable: 0
+  isReloading: 0
   Drop: {fileID: 175452, guid: 818bedb0d243d0e45968f476d7fdd987, type: 2}
   sDrop: {fileID: 169020}
   Item: {fileID: 126532, guid: db626a9d5c972ea41bb7b9705fa27170, type: 2}
   m_PowerLevel: 0
   m_pLvl: 0
+  validTarget: 0
+  dieTimer: 0
+  dieDelay: 0
 --- !u!114 &11431764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1761,12 +1802,12 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: .200000003
---- !u!114 &11476708
+--- !u!114 &11434810
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169020}
+  m_GameObject: {fileID: 125932}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b445e8009cf710849b0d0d15fb103d61, type: 3}
@@ -1783,9 +1824,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 470570, guid: 50eda0bc77a818b48ad9e3708e7980b6, type: 2}
---- !u!136 &13635110
-CapsuleCollider:
+  target: {fileID: 0}
+--- !u!114 &11497768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02723307269ef66408d5ac4aa685ffc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  goal: {fileID: 0}
+--- !u!135 &13517724
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!135 &13590930
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -1793,10 +1859,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 4
-  m_Direction: 1
-  m_Center: {x: 0, y: 2, z: 0}
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13671988
 CapsuleCollider:
   m_ObjectHideFlags: 1

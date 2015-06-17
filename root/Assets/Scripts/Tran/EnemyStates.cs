@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyStates : MonoBehaviour {
+public class EnemyStates : MonoBehaviour
+{
 
     NavMeshAgent enemy;
     private GameObject target;
@@ -20,8 +21,8 @@ public class EnemyStates : MonoBehaviour {
     {
         enemy = GetComponent<NavMeshAgent>();
         enemy.autoBraking = false;
-        target = gameObject;
-       
+        goal = GameObject.FindGameObjectWithTag("Goal").transform;
+        target = goal.gameObject;
 	}
 
     void OnTriggerStay(Collider other)
@@ -36,7 +37,8 @@ public class EnemyStates : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject == target)
-            target = gameObject;
+            target = goal.gameObject;
+
     }
 
 	void Update () 

@@ -19,7 +19,7 @@ public class ScoreManager : Singleton<ScoreManager>
         else if (curHp <= 0) { return false; }
         //Use GM to trigger Lose State
 
-        HUDManager.instance.HpHUD(curHp, maxHp);
+        //HUDManager.instance.HpHUD(curHp, maxHp);
         return true;
     }
     /// <summary>
@@ -110,7 +110,7 @@ public class ScoreManager : Singleton<ScoreManager>
         if (turretNumber < 0)
             return false;
 
-        HUDManager.instance.TurHUD(turretNumber);
+        //HUDManager.instance.CurTur(turretNumber);
         return true;
     }
     /// <summary>

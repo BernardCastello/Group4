@@ -4,9 +4,12 @@ using System.Collections;
  
 public interface IActions
 {
-
     void Slap();
-    void Jump();
     void Shoot();
+}
+
+public interface TActions
+{
+    void Reload();
 }
  

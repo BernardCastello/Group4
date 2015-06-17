@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1265adab971183e47a99eb6ce2e6896b
-timeCreated: 1433527423
+timeCreated: 1434055837
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -53,12 +53,12 @@ TextureImporter:
     - name: dot_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 73
-        width: 149
-        height: 149
+        x: 85
+        y: 91
+        width: 46
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

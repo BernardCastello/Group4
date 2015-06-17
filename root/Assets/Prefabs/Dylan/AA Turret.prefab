@@ -29,7 +29,7 @@ GameObject:
   - 33: {fileID: 3395510}
   - 135: {fileID: 13590498}
   - 23: {fileID: 2347876}
-  - 114: {fileID: 11461372}
+  - 114: {fileID: 11432080}
   m_Layer: 0
   m_Name: AA rotate Joint
   m_TagString: AA
@@ -45,6 +45,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463312}
+  - 114: {fileID: 11454966}
+  - 135: {fileID: 13557118}
   m_Layer: 0
   m_Name: AA Turret
   m_TagString: Turret
@@ -235,7 +237,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.94799995, y: .790000021, z: -5.69000006}
+  m_LocalPosition: {x: -1.22000003, y: .790000021, z: -6.96999979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491708}
@@ -611,7 +613,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11461372
+--- !u!114 &11432080
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -619,17 +621,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 110446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b32c9517789fa64d807966c8b86bbc1, type: 3}
+  m_Script: {fileID: 11500000, guid: a0327beb9511a84499b80b06961bc736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Level: 0
-  m_Exp: 0
-  m_ExpNeeded: 0
+--- !u!114 &11454966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21efdcfda202894ab957bf9f95d19a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_MaxHealth: 0
   m_Health: 0
   m_HealthRegen: 0
-  m_Acc: 0
-  cGrowthType: 0
+  m_maxAmmo: 0
+  m_Ammo: 0
+  isPlayer: 0
+  isEnemy: 0
+  isTurret: 0
+  isGoal: 0
+  isShootable: 0
+  isReloading: 0
+  rotationSpeed: 5
+  damage: 5
   bullet: {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
   turretView: {fileID: 197494}
   target: {fileID: 0}
@@ -641,18 +659,11 @@ MonoBehaviour:
   - {fileID: 424536}
   - {fileID: 466884}
   turretTop: []
-  rotationSpeed: 5
-  reloadSpeed: 5
-  rateOfFire: .25
-  maxAmmo: 100
-  currentAmmo: 100
-  damage: 5
-  turretCost: 10
-  isTargetInRadius: 0
-  isReloading: 0
-  validTarget: 0
-  fireDelay: 0
-  reloadTime: 0
+  rotationToGoal: {x: 0, y: 0, z: 0, w: 0}
+  t_cycle: 0
+  t_RateOfFire: 0
+  t_ReloadTime: 0
+  type: 1
 --- !u!114 &11463876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -665,6 +676,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTargetInView: 0
+--- !u!135 &13557118
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13590498
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -39,8 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d94e43cf76f4bd4799c0022eb1a7b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInv: {fileID: 179244, guid: 91f59f8794fb1ea469549a9b495ef6f0, type: 2}
+  playerInv: {fileID: 0}
   gameManager: {fileID: 107940, guid: 991dbcd8ad3be7d4b86dd38c291b1114, type: 2}
+  player: {fileID: 0}
+  progress: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

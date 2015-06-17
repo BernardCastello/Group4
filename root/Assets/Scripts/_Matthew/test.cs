@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 public class test : MonoBehaviour
 {
-    //void Update()
-    //{
-    //    HUDManager.instance.SetInfoLeft(Time.deltaTime.ToString() + "\n" + "dudes are dudes");
-    //}
+    void OnTriggerStay(Collider c)
+    {
+        if (c.tag == "Enemy")
+            print(c.gameObject.name + "is in me");
+    }
 }
