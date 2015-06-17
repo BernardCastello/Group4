@@ -55,6 +55,7 @@ public class Grenade : EquipmentStats
         rb.AddForce(Camera.main.transform.forward * 450);
 
         gameObject.GetComponent<IPickup>().Drop();
+        
     }
 
     ////throw instantiate

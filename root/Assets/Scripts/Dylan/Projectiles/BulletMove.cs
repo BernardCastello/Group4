@@ -29,12 +29,10 @@ public class BulletMove : MonoBehaviour
         if(c.tag == "Enemy")
         {
             doDmg = true;
-            Debug.Log(doDmg);
             Destroy(gameObject);
             if (doDmg == true)
             {
                 enemy.GetComponent<EnemyStats>().m_Health -= bDamage;
-                Debug.Log("Im dying");
             }
         }
     }
