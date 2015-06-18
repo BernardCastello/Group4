@@ -11,11 +11,10 @@ public class BaseTurret : Stats
     public Transform[] turretTop; //refrence to the pos of the top of the turret
 
     public float rotationSpeed = 5.0f; //Sets the rotation speed for the turret to travel to get to the targets position
-    public float reloadSpeed = 5.0f; //The time for the turret to replinish its ammo (also will be a rest time no turret movement)
-    public float rateOfFire = .25f; //how fast the turret will fire
-
-    public int maxAmmo = 100; //how mmuch ammo the turret can hold
-    public int currentAmmo = 100; //how many shots the turret has is decressed by one for every shot unless the turret has multiple barrels
+    public float reloadSpeed = 1f; //The time for the turret to replinish its ammo (also will be a rest time no turret movement)
+    public float rateOfFire = 20f; //how fast the turret will fire
+    public int maxAmmo = 1000; //how mmuch ammo the turret can hold
+    public int currentAmmo = 1000; //how many shots the turret has is decressed by one for every shot unless the turret has multiple barrels
 
     public int damage = 5;
 
@@ -62,7 +61,7 @@ public class BaseTurret : Stats
         {
             fireDelay = Time.time + rateOfFire;
 
-            bullet.GetComponent<BulletMove>().isFired = true;
+            bullet.GetComponent<ProjectileFSM>().isFired = true;
             currentAmmo -= 1;
 
             //Fire mechanics for the MachineGun turret

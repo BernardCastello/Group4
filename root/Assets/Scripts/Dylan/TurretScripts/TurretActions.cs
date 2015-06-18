@@ -42,7 +42,7 @@ public class TurretActions : MonoBehaviour, TActions
             GetComponentInParent<TurretStats>().turretView.GetComponent<FieldOfView>().isTargetInView == true)
         {
             t_State(TurretState.shoot);
-            GetComponentInParent<TurretStats>().bullet.GetComponent<BulletMove>().isFired = true;
+            GetComponentInParent<TurretStats>().bullet.GetComponent<ProjectileFSM>().isFired = true;
             GetComponentInParent<TurretStats>().m_Ammo -= 1;
 
             switch(type)

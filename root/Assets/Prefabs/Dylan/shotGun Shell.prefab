@@ -40,7 +40,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0520cc8d5fd34498160da05d44f89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BB:
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
+  - {fileID: 102918, guid: da23fc14d165709449cb43eb8340a44b, type: 2}
   enemy: {fileID: 0}
+  throwPower: 25
   bDamage: 10
   isFired: 0
   doDmg: 0
@@ -54,7 +66,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .349999994
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:

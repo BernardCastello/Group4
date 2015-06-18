@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11432584}
   m_Layer: 0
   m_Name: shotGun Rote Joint
-  m_TagString: One Barrel
+  m_TagString: MG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

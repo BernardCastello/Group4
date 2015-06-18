@@ -8,7 +8,6 @@ public class TurretPlacement : Singleton<TurretPlacement>
     private GameObject turret;
 
     private int turretPlaced = 0;
-
     private int turretCost = 0;
     public bool isSelected = false; //checks to see if a turret is selected
 
@@ -17,37 +16,51 @@ public class TurretPlacement : Singleton<TurretPlacement>
 	// Use this for initialization
 	void Start () 
     {
-       dot.gameObject.SetActive(false);
-	}
+        dot.gameObject.SetActive(false);
+        turret = turret1;
+        if (!isSelected)
+        {
+            dot.gameObject.SetActive(false);
+        }
+    }
 	
 	// Update is called once per frame
-    void Update()
-    {
-        //TurretSelect();
-        //TurretPlace();
-        //calls in the functions for selecting a turret and placing the turrets
+    void Update() { HUDManager.instance.TurHUD(turretPlaced);}
 
-        HUDManager.instance.TurHUD(turretPlaced);
-    }
-
-     public void TurretPlacePoint()
+    public void TurretWasPlaced()
     {
         Vector3 pos = transform.position + Camera.main.transform.forward * 3;
         pos.y = 0;
-        //Sets the spawn position that the turret will be placed at
 
-        //dot.gameObject.SetActive(true);
-        
+        dot.gameObject.SetActive(false);
+        Instantiate(turret, pos, transform.rotation);
+        isSelected = true;
+    }
+
+    public void TurretPlacePoint()
+    {
+
+        if (Input.GetMouseButton(0) && isSelected)
+        {
+            Vector3 pos = transform.position + Camera.main.transform.forward * 3;
+            pos.y = 0;
+        }
 
         if (isSelected == true)
         {
             dot.gameObject.SetActive(true);
-            Instantiate(turret, pos, transform.rotation);
             isSelected = false;
-            turretPlaced = turretPlaced + 1;
-            
-
         }
+
+        ////////////////////////////////
+
+        //if (isSelected == true)
+        //{
+        //    dot.gameObject.SetActive(true);
+        //    Instantiate(turret, pos, transform.rotation);
+        //    isSelected = false;
+        //    turretPlaced = turretPlaced + 1;
+        //}
     }
 
     public void TurretSelect(KeyCode a)
