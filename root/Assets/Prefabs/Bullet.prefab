@@ -12,7 +12,7 @@ GameObject:
   - 135: {fileID: 13524286}
   - 23: {fileID: 2399350}
   - 96: {fileID: 9683700}
-  - 114: {fileID: 11413356}
+  - 114: {fileID: 11467220}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -108,7 +108,7 @@ TrailRenderer:
       rgba: 49407
   m_MinVertexDistance: .100000001
   m_Autodestruct: 0
---- !u!114 &11413356
+--- !u!114 &11467220
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -116,12 +116,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 102918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad1b400d0cd5674a912c82d5d29c033, type: 3}
+  m_Script: {fileID: 11500000, guid: bb0520cc8d5fd34498160da05d44f89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damgaeOutput: 10
   BB: []
-  enemy: {fileID: 169020, guid: 57c806e5fb8b40143a37e27bab03b554, type: 2}
+  enemy: {fileID: 0}
   throwPower: 25
   bDamage: 10
   isFired: 1

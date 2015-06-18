@@ -26,10 +26,10 @@ public class TurretFSM
                     TurretActions[Key] = true;
                     break;
                 case TurretState.patrol:
-                    TurretActions[Key] = false;
+                    TurretActions[Key] = true;
                     break;
                 case TurretState.shoot:
-                    TurretActions[Key] = false;
+                    TurretActions[Key] = true;
                     break;
                 case TurretState.destroyed:
                     TurretActions[Key] = false;

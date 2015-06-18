@@ -30,11 +30,11 @@ public class TurretStats : Stats
 
     void OnTriggerStay(Collider c)
     {
-        if(c.GetComponentInParent<Stats>())
-        if (c.GetComponentInParent<Stats>().isShootable == true)
-        {
-            target = c.gameObject;
-        }
+        if (c.GetComponentInParent<Stats>())
+            if (c.GetComponentInParent<Stats>().isShootable == true)
+            {
+                target = c.gameObject;
+            }
     }
 
     void OnTriggerExit(Collider c)

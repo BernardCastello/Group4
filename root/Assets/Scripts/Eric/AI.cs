@@ -24,12 +24,28 @@ public class AI : AICharacterControl
         {
             if (other.GetComponent<Stats>().isPlayer)
             {
-                SetTarget(other.transform);
+                GetComponent<AICharacterControl>().target = other.transform;
             }
             else if (other.GetComponent<Stats>().isTurret)
             {
-                SetTarget(other.transform);
+                GetComponent<AICharacterControl>().target = other.transform;
             }
         }
     }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Stats>() && !other.GetComponent<Stats>().isEnemy)
+        {
+            if (other.GetComponent<Stats>().isPlayer)
+            {
+                GetComponent<AICharacterControl>().target = goal.transform;
+            }
+            else if (other.GetComponent<Stats>().isTurret)
+            {
+                GetComponent<AICharacterControl>().target = goal.transform;
+            }
+        }
+    }
+
 }

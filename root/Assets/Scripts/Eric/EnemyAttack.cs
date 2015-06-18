@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.GetComponent<Stats>() && !other.GetComponent<Stats>().isEnemy)
         {
-            if (other.GetComponent<Stats>().isPlayer || other.GetComponent<Stats>().isTurret)
+            if (other.GetComponent<Stats>().isPlayer || other.GetComponent<Stats>().isTurret || other.GetComponent<Stats>().isGoal)
             {
                 other.GetComponent<Stats>().m_Health -= (damage * Time.deltaTime);
             }

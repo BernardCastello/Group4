@@ -5,8 +5,8 @@ public class GoalStats : Stats
 {
     void Start()
     {
+        m_Health = m_MaxHealth;
         isGoal = true;
-        m_Health = 100;
     }
 
     void Update()

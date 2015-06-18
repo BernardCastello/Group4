@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
 
         capsuleCollider.isTrigger = true;
-
+        
         Destroy(gameObject);
     }
 

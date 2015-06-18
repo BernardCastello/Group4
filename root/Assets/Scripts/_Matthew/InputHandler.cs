@@ -11,6 +11,9 @@ public class InputHandler : MonoBehaviour
     private GameObject Enemy;
     private GameObject goal;
 
+    public AudioClip Shooting;
+    public AudioClip Slapping;
+    public AudioClip TurrentPlace;
 
     //Stores all the keys for each input that should perform an action
     //GameStates
@@ -24,7 +27,7 @@ public class InputHandler : MonoBehaviour
     public KeyCode tTurret2 = KeyCode.Alpha2;
     public KeyCode tTurret3 = KeyCode.Alpha3;
     public KeyCode tTurret4 = KeyCode.Alpha4;
-    public KeyCode place = KeyCode.Mouse0;
+    public KeyCode place = KeyCode.Mouse1;
 
     //player movement controls
     public KeyCode walkForward = KeyCode.W;
@@ -35,7 +38,6 @@ public class InputHandler : MonoBehaviour
     public KeyCode slap = KeyCode.F;
     public KeyCode shoot = KeyCode.V;
     public KeyCode jump = KeyCode.Space;
-    public KeyCode grenade = KeyCode.T;
 
     //player state change controls
     public KeyCode init = KeyCode.I;
@@ -63,7 +65,7 @@ public class InputHandler : MonoBehaviour
         turretManager = GameObject.FindGameObjectWithTag("TurretManager");
         turret = GameObject.FindGameObjectWithTag("MG");
         Enemy = GameObject.FindGameObjectWithTag("Enemy");
-
+        turretManager = GameObject.FindGameObjectWithTag("TurretManager");
         //Game State changes
         if (Input.GetKeyDown(halfPause))
         {
@@ -152,36 +154,30 @@ public class InputHandler : MonoBehaviour
             turretManager.GetComponent<TurretPlacement>().TurretSelect(tTurret4);
         }
 
-        if (Input.GetKeyUp(place))
-        {
-            turretManager.GetComponent<TurretPlacement>().TurretWasPlaced();
-        }
-
         if (Input.GetKeyDown(place))
         {
+            AudioManager.instance.PlayAudio(TurrentPlace);
             turretManager.GetComponent<TurretPlacement>().TurretPlacePoint();
         }
 
         ////Player Actions
         if (Input.GetKeyDown(slap))
         {
+            AudioManager.instance.PlayAudio(Slapping);
             player.GetComponent<PlayerActions>().Slap();
         }
 
-        //if (Input.GetKeyDown(shoot))
-        //{
-        //    player.GetComponent<PlayerActions>().Shoot();
-        //}
+        if (Input.GetKeyDown(shoot))
+        {
+            AudioManager.instance.PlayAudio(Shooting);
+            player.GetComponent<PlayerActions>().Shoot();
+        }
 
         if (Input.GetKeyDown(jump))
         {
             player.GetComponent<PlayerActions>().Jump();
         }
 
-        if(Input.GetKeyDown(grenade))
-        {
-            player.GetComponent<PlayerActions>().Grenades();
-        }
 
         /////Dev Controls
         if (Input.GetKeyDown(killTurret))
@@ -196,7 +192,7 @@ public class InputHandler : MonoBehaviour
             }
             catch
             {
-                Debug.LogWarning("there is no enemies :( ");
+                Debug.LogWarning("ther is no enemies :( ");
             }
         }
         if (Input.GetKeyDown(endGame))

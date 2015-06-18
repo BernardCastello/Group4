@@ -245,11 +245,22 @@ MonoBehaviour:
   m_MaxHealth: 0
   m_Health: 0
   m_HealthRegen: 0
+  m_maxAmmo: 0
+  m_Ammo: 0
+  isPlayer: 0
+  isEnemy: 0
+  isTurret: 0
+  isGoal: 0
+  isShootable: 0
+  isReloading: 0
   Drop: {fileID: 175452, guid: 818bedb0d243d0e45968f476d7fdd987, type: 2}
   sDrop: {fileID: 112396}
   Item: {fileID: 126532, guid: db626a9d5c972ea41bb7b9705fa27170, type: 2}
   m_PowerLevel: 0
   m_pLvl: 0
+  validTarget: 0
+  dieTimer: 0
+  dieDelay: 3
 --- !u!135 &13596926
 SphereCollider:
   m_ObjectHideFlags: 1

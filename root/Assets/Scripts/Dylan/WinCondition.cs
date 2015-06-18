@@ -8,6 +8,8 @@ public class WinCondition : MonoBehaviour
     public GameObject player;
     public GameObject progress;
 
+    public AudioClip Dead;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -31,6 +33,7 @@ public class WinCondition : MonoBehaviour
 
         if(player.GetComponent<PlayerStats>().m_Health <= 0)
         {
+            AudioManager.instance.PlayAudio(Dead);
             gameManager.GetComponent<LevelLoader>().loadLevel("Exit");
         }
 
